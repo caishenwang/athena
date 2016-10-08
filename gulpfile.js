@@ -96,7 +96,7 @@ gulp.task('debug', ['watch'], function () {
         server: {
             baseDir: paths.demo,
             routes: {
-                'dist': paths.dist
+                '/dist': 'dist'
             }
         }
         // files: [
