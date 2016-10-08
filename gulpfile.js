@@ -24,7 +24,7 @@ var browserSync = require('browser-sync').create();
 var paths = {
     src: 'src',
     components: 'src/components', 
-    scss: 'src/scss',
+    demo: 'demo',
     dist: 'dist',
     js: [
         'src/js/' + projectName + '.js',
@@ -94,8 +94,14 @@ gulp.task('debug', ['watch'], function () {
     browserSync.init({
         startPath: '/',
         server: {
-            baseDir: paths.dist
+            baseDir: paths.demo,
+            routes: {
+                'dist': paths.dist
+            }
         }
+        // files: [
+        //     paths.dist + 'js/*.js'
+        // ]
         // browser: 'google chrome',
     });
 
