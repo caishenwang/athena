@@ -1,0 +1,26 @@
+{
+  "name": "athena",
+  "version": "1.0.0",
+  "description": "Components for caishen.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caishenwang/athena.git"
+  },
+  "keywords": [
+    "Caishen",
+    "Component"
+  ],
+  "author": "Jian Zhu, Ye Chang, Boxuan Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caishenwang/athena/issues"
+  },
+  "homepage": "https://github.com/caishenwang/athena#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
