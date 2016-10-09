@@ -2,7 +2,7 @@
  * @author changye@thinkerx.com
  */
 angular
-    .module('athena.autoComplete', [])
+    .module('athena.autoComplete')
     .component('autoCompleteItem', {
         //templateUrl: function (element, attrs) {
         //    console.log(999,    element.type);

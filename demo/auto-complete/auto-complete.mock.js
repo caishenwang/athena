@@ -1,4 +1,4 @@
-var itemList = [
+var autoCompleteItemList = [
     {
         'id': 1,
         'name': 'kajskajsa'

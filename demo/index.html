@@ -61,13 +61,12 @@
         function MainCtrl() {
             var vm = this;
 
-            vm.autoCompleteItemList = itemList;
+            vm.autoCompleteItemList = autoCompleteItemList;
             vm.selectedItem = null;
 
             init();
 
             function init() {
-                console.log(999, vm.autoCompleteItemList, itemList);
             }
         }
     </script>

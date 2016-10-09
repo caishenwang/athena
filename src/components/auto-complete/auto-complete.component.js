@@ -10,7 +10,7 @@ angular
         controllerAs: 'complete',
         bindings: {
             key: '@',
-            type: '<',
+            type: '@',
             placeholder: '@',
             itemList: '=',
             selectedItem: '='
