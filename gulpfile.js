@@ -96,16 +96,22 @@ gulp.task('debug', ['watch'], function () {
         server: {
             baseDir: paths.demo,
             routes: {
-                '/dist': 'dist'
+                '/dist': 'dist',
+                '/views': 'dist/views'
             }
         }
         // files: [
-        //     paths.dist + 'js/*.js'
+        //     paths.dist + 'js/*.js',
+        //     paths.dist + 'css/*.css',
+        //     paths.dist + 'views/*.html'
         // ]
         // browser: 'google chrome',
     });
 
-    gulp.watch(paths.dist + '/**/*').on('change', browserSync.reload);
+    gulp.watch([
+        paths.dist + '/**/*',
+        paths.demo + '/**/*'
+    ]).on('change', browserSync.reload);
 });
 
 gulp.task('clean', function () {
