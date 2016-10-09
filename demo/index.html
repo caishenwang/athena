@@ -26,9 +26,15 @@
 
 <!-- ControllerAs syntax -->
 <!-- Main controller with serveral data used in Inspinia theme on diferent view -->
-<body>
+<body ng-controller="MainCtrl as main" style="background: #fff">
     <!-- Main view  -->
-    <div ui-view></div>
+    <!--<div ui-view></div>-->
+    <div ng-include="'auto-complete/auto-complete.html'"></div>
+
+    <auto-complete item-list="main.autoCompleteItemList"
+                   selected-item="main.selectedItem"
+                   key="name"
+                   type="text"></auto-complete>
 
     <!-- jQuery and Bootstrap -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/jquery/jquery-2.1.1.min.js"></script>
@@ -51,6 +57,25 @@
 
     <!-- Anglar App Script -->
     <script src="/dist/js/athena.js"></script>
+    <script src="auto-complete/auto-complete.mock.js"></script>
+    <script>
+        angular
+                .module('athena')
+                .controller('MainCtrl', MainCtrl);
+
+        function MainCtrl() {
+            var vm = this;
+
+            vm.autoCompleteItemList = itemList;
+            vm.selectedItem = null;
+
+            init();
+
+            function init() {
+                console.log(999, vm.autoCompleteItemList, itemList);
+            }
+        }
+    </script>
 
 </body>
 </html>

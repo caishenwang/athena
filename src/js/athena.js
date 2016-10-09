@@ -1,1 +1,3 @@
-angular.module('athena', []);
+angular.module('athena', [
+    'athena.autoComplete'
+]);
