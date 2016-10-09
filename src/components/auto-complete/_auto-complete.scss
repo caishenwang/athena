@@ -1,11 +1,12 @@
 .form-popup {
     z-index: 3;
-    top: 0;
-    left: 0;
+    top: inherit;
+    left: inherit;
     background: $default-bg-color;
     border: 1px solid $default-border-color;
     border-radius: $default-border-radius;
     margin-top: 3px;
+    position: absolute;
 
     ul {
         padding-left: 0;
@@ -17,6 +18,7 @@
             height: 25px;
             line-height: 25px;
             padding-left: 15px;
+            padding-right: 15px;
             cursor: pointer;
 
             &:hover {
