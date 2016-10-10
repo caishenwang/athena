@@ -13,7 +13,7 @@ function AutoCompleteItemCtrl($scope) {
     vm.selectResult = selectResult;
 
     $scope.getTemplate = function () {
-        return 'views/auto-complete-' + vm.type +  '.view.html';
+        return 'auto-complete-' + vm.type +  '.view.html';
     };
 
     function selectResult(item) {
