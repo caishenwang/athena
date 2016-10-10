@@ -1,7 +1,10 @@
 angular.module('athena', [
     'athena.autoComplete',
-    'athena.menuSelector'
+    'athena.menuSelector',
+    'athena.templates'
 ]);
+
+angular.module('athena.templates', []);
 
 /**
  * @author changye@thinkerx.com
@@ -9,8 +12,7 @@ angular.module('athena', [
 angular
     .module('athena.autoComplete', [])
     .component('autoComplete', {
-        //template: '2223232',
-        templateUrl: 'views/auto-complete.view.html',
+        templateUrl: 'auto-complete.view.html',
         controller: 'AutoCompleteCtrl',
         controllerAs: 'complete',
         bindings: {
@@ -62,7 +64,7 @@ function AutoCompleteCtrl($scope) {
 angular
     .module('athena.menuSelector', [])
     .component('menuSelector',{
-        templateUrl: 'views/menu-selector.view.html',
+        templateUrl: 'menu-selector.view.html',
         controller: 'MenuSelector',
         controllerAs: 'menu',
         bindings: {
@@ -107,6 +109,7 @@ function MenuSelector() {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
+        $scope.$emit('get_selected_menu', vm.selectedMenu);
     }
 
     function showSelectedMenu() {
@@ -146,9 +149,9 @@ function menuSelector() {
         if(input) {
             if(input[2]) {
                 return input[0].name + ' > ' + input[1].name + ' > ' + input[2].name;
-            } else if(input[1] && input[1].children.length == 0) {
+            } else if(input[1] && input[1].children.length === 0) {
                 return input[0].name + ' > ' + input[1].name;
-            } else if(input[0] && input[0].children.length == 0) {
+            } else if(input[0] && input[0].children.length === 0) {
                 return input[0].name;
             }
         }            
@@ -192,7 +195,7 @@ function AutoCompleteItemCtrl($scope) {
     vm.selectResult = selectResult;
 
     $scope.getTemplate = function () {
-        return 'views/auto-complete-' + vm.type +  '.view.html';
+        return 'auto-complete-' + vm.type +  '.view.html';
     };
 
     function selectResult(item) {
