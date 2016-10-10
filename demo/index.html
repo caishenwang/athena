@@ -30,6 +30,7 @@
     <!-- Main view  -->
     <!--<div ui-view></div>-->
     <div ng-include="'auto-complete/auto-complete.html'"></div>
+    <div ng-include="'menu-selector/menu-selector.html'"></div>
 
     <!-- jQuery and Bootstrap -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/jquery/jquery-2.1.1.min.js"></script>
@@ -53,6 +54,7 @@
     <!-- Anglar App Script -->
     <script src="/dist/js/athena.js"></script>
     <script src="auto-complete/auto-complete.mock.js"></script>
+    <script src="menu-selector/menu-selector.mock.js"></script>
     <script>
         angular
                 .module('athena')
@@ -63,6 +65,8 @@
 
             vm.autoCompleteItemList = autoCompleteItemList;
             vm.selectedItem = null;
+
+            vm.menuSelectorItemList = menuSelectorItemList;
 
             init();
 

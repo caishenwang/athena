@@ -1,3 +1,4 @@
 angular.module('athena', [
-    'athena.autoComplete'
+    'athena.autoComplete',
+    'athena.menuSelector'
 ]);
