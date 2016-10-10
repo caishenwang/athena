@@ -34,6 +34,7 @@ function MenuSelector() {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
+        $scope.$emit('get_selected_menu', vm.selectedMenu);
     }
 
     function showSelectedMenu() {
