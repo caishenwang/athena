@@ -12,6 +12,7 @@ var htmlminConfig = {
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
+var templateCache = require('gulp-angular-templatecache');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var flatten = require('gulp-flatten');
@@ -84,10 +85,25 @@ gulp.task('build:html', function() {
         .pipe(gulp.dest(paths.dist + '/views'));
 });
 
+// views task
+gulp.task('build:htmlcache', function() {
+    return gulp.src(paths.html)
+        .pipe(flatten())
+        .pipe(htmlmin(htmlminConfig))
+        .pipe(templateCache('templates.js', {
+            module: projectName + '.templates'
+        }))
+        .pipe(gulp.dest(paths.dist + '/js'))
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(paths.dist + '/js/'));
+});
+
 gulp.task('build', [
     'build:js',
     'build:css',
-    'build:html'
+    // 'build:html'
+    'build:htmlcache'
 ]);
 
 gulp.task('debug', ['watch'], function () {
