@@ -20,3 +20,31 @@
       cursor: pointer; }
       .form-popup ul li:hover {
         background-color: rgba(255, 193, 37, 0.5) !important; }
+
+.menu-selector {
+  position: relative;
+  z-index: 4; }
+  .menu-selector input {
+    background: #fff !important; }
+  .menu-selector .dropdown {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 300%; }
+    .menu-selector .dropdown .fa {
+      float: right;
+      margin-top: 6px; }
+    .menu-selector .dropdown ul {
+      padding: 5px 0;
+      width: 33.333%;
+      float: left;
+      max-height: 260px;
+      overflow-x: hidden; }
+      .menu-selector .dropdown ul li {
+        padding: 0 10px;
+        line-height: 25px;
+        cursor: pointer; }
+        .menu-selector .dropdown ul li:hover {
+          background: #eee; }
+      .menu-selector .dropdown ul li.active {
+        background: #eee; }
