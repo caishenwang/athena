@@ -5,9 +5,9 @@ angular
     .module('athena.menuSelector')
     .controller('MenuSelector', MenuSelector);
 
-MenuSelector.$inject = [];
+MenuSelector.$inject = ['$timeout'];
 
-function MenuSelector() {
+function MenuSelector($timeout) {
     var vm = this;
 
     vm.selectedMenu = [];
@@ -44,17 +44,22 @@ function MenuSelector() {
         vm.menuList3 = vm.selectedMenu[2];
     }
 
-    function hoverSelectMenu(item) {
-        switch(item.level) {
-            case 1:
-                vm.menuList1 = item;
-                break;
-            case 2:
-                vm.menuList2 = item;
-                break;
-            case 3:
-                vm.menuList3 = item;
-                break;
-        }
-    }    
+    function hoverSelectMenu(item, $event) {
+        var timer;
+        clearTimeout(timer);
+        timer = $timeout(function() {
+            switch(item.level) {
+                case 1:
+                    vm.menuList1 = item;
+                    break;
+                case 2:
+                    vm.menuList2 = item;
+                    break;
+                case 3:
+                    vm.menuList3 = item;
+                    break;
+            }
+        }, 200);
+        $event.stopPropagation();
+    }
 }

@@ -1,3 +1,7 @@
+@function widthFn($level) {
+    @return $level * 100%;
+}
+
 .menu-selector {
     position: relative;
     z-index: 4;
@@ -7,18 +11,37 @@
     }
 }
 
+.menu-selector .dropdown-1{
+    width: widthFn(1);
+    ul {
+        width: widthFn(1);
+    }
+}
+
+.menu-selector .dropdown-2{
+    width: widthFn(2);
+    ul {
+        width: widthFn(1/2);
+    }
+}
+
+.menu-selector .dropdown-3{
+    width: widthFn(3);
+    ul {
+        width: widthFn(1/3);
+    }
+}
+
 .menu-selector .dropdown {
     position: absolute;
     left: 0;
     top: 100%;
-    width: 300%;
     .fa {
         float: right;
         margin-top: 6px;
     }
     ul {
         padding: 5px 0;
-        width: 33.333%;
         float: left;
         max-height: 260px;
         overflow-x: hidden;
