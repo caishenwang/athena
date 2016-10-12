@@ -5,9 +5,9 @@ angular
     .module('athena.menuSelector')
     .controller('MenuSelector', MenuSelector);
 
-MenuSelector.$inject = ['$timeout'];
+MenuSelector.$inject = ['$scope', '$timeout'];
 
-function MenuSelector($timeout) {
+function MenuSelector($scope, $timeout) {
     var vm = this;
 
     vm.selectedMenu = [];
@@ -59,7 +59,26 @@ function MenuSelector($timeout) {
                     vm.menuList3 = item;
                     break;
             }
-        }, 200);
+        }, 0);
         $event.stopPropagation();
+
+        /*
+         * position
+         */
+        var className = $event.currentTarget.parentNode.className;
+        if(new RegExp('level-1').test(className)) {
+            $timeout(function() {
+                $('.level-2').css({
+                    'margin-top': $event.currentTarget.offsetTop
+                });
+            });
+        }
+        if(new RegExp('level-2').test(className)) {
+            $timeout(function() {
+                $('.level-3').css({
+                    'margin-top': $event.currentTarget.offsetTop
+                });
+            });
+        }
     }
 }
