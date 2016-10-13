@@ -39,8 +39,58 @@ var menuSelectorItemList = [
                         'children': []
                     }
                 ]
+            },
+            {
+                'name': '移门腰线',
+                'level': 2,
+                'children': []
+            },
+            {
+                'name': '移门腰线',
+                'level': 2,
+                'children': []
+            },
+            {
+                'name': '移门腰线',
+                'level': 2,
+                'children': []
+            },
+            {
+                'name': '移门腰线',
+                'level': 2,
+                'children': []
             }
         ]
+    },
+    {
+        'name': '五金配件',
+        'level': 1,
+        'children': []
+    },
+    {
+        'name': '中空辅料',
+        'level': 1,
+        'children': []
+    },
+    {
+        'name': '五金配件',
+        'level': 1,
+        'children': []
+    },
+    {
+        'name': '中空辅料',
+        'level': 1,
+        'children': []
+    },
+    {
+        'name': '五金配件',
+        'level': 1,
+        'children': []
+    },
+    {
+        'name': '中空辅料',
+        'level': 1,
+        'children': []
     },
     {
         'name': '五金配件',

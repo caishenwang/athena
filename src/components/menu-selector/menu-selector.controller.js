@@ -45,23 +45,6 @@ function MenuSelector($scope, $timeout) {
     }
 
     function hoverSelectMenu(item, $event) {
-        var timer;
-        clearTimeout(timer);
-        timer = $timeout(function() {
-            switch(item.level) {
-                case 1:
-                    vm.menuList1 = item;
-                    break;
-                case 2:
-                    vm.menuList2 = item;
-                    break;
-                case 3:
-                    vm.menuList3 = item;
-                    break;
-            }
-        }, 0);
-        $event.stopPropagation();
-
         /*
          * position
          */
