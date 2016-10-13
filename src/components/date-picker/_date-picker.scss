@@ -1,0 +1,13 @@
+.date-picker-date {
+    width: 240px;
+}
+
+.date-picker-range {
+    width: 480px;
+    overflow: hidden;
+}
+
+.date-picker-range > div {
+    width: 240px;
+    float: left;
+}

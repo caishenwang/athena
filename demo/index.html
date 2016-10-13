@@ -21,6 +21,9 @@
     <link href="http://cdn.cshen.cn/INSPINIA-v2.6.2/css/animate.css" rel="stylesheet">
     <link id="loadBefore" href="http://cdn.cshen.cn/INSPINIA-v2.6.2/css/style.min.css" rel="stylesheet">
 
+    <!-- date-picker -->
+    <link href="http://cdn.cshen.cn/INSPINIA-v2.6.2/css/plugins/datapicker/angular-datapicker.css" rel="stylesheet">
+
     <link href="/dist/css/athena.css" rel="stylesheet">
 </head>
 
@@ -31,6 +34,7 @@
     <!--<div ui-view></div>-->
     <div ng-include="'auto-complete/auto-complete.html'"></div>
     <div ng-include="'menu-selector/menu-selector.html'"></div>
+    <div ng-include="'date-picker/date-picker.html'"></div>
 
     <!-- jQuery and Bootstrap -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/jquery/jquery-2.1.1.min.js"></script>
@@ -51,23 +55,32 @@
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/plugins/angular-idle/angular-idle.js"></script>
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/angular/angular-cookies.min.js"></script>
 
+    <!-- date-picker -->
+    <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/plugins/datapicker/angular-datepicker.js"></script>
+
     <!-- Anglar App Script -->
     <script src="/dist/js/athena.js"></script>
     <script src="/dist/js/templates.js"></script>
     <script src="auto-complete/auto-complete.mock.js"></script>
     <script src="menu-selector/menu-selector.mock.js"></script>
+    <script src="date-picker/date-picker.mock.js"></script>
     <script>
         angular
-                .module('athena')
-                .controller('MainCtrl', MainCtrl);
+            .module('athena')
+            .controller('MainCtrl', MainCtrl);
 
         function MainCtrl() {
             var vm = this;
 
+            // auto-complete
             vm.autoCompleteItemList = autoCompleteItemList;
             vm.selectedItem = null;
 
+            // menu-selector
             vm.menuSelectorItemList = menuSelectorItemList;
+
+            // date-picker
+            vm.defaultDate = defaultDate;
 
             init();
 
