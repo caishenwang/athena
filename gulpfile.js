@@ -43,7 +43,7 @@ var paths = {
 gulp.task('watch', ['build'], function() {
     gulp.watch(paths.js, ['build:js']);
     gulp.watch(paths.css, ['build:css']);
-    gulp.watch(paths.html, ['build:html']);
+    gulp.watch(paths.html, ['build:html', 'build:htmlcache']);
 });
 
 gulp.task('lint', function() {
