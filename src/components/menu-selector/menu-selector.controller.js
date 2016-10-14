@@ -51,11 +51,11 @@ function MenuSelector($scope, $timeout) {
         var level2 = angular.element('.level-2');
         var level3 = angular.element('.level-3');
 
-        level1.scroll(function(){
-            level1ScrollTop = level1.scrollTop();
+        level1.find('ul').scroll(function(){
+            level1ScrollTop = level1.find('ul').scrollTop();
         });
-        level2.scroll(function(){
-            level2ScrollTop = level2.scrollTop();
+        level2.find('ul').scroll(function(){
+            level2ScrollTop = level2.find('ul').scrollTop();
         });
 
         var className = $event.currentTarget.parentNode.className;
