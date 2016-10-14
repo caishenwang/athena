@@ -13,9 +13,9 @@ function menuSelector() {
         if(input) {
             if(input[2]) {
                 return input[0].name + ' > ' + input[1].name + ' > ' + input[2].name;
-            } else if(input[1] && input[1].children.length === 0) {
+            } else if(input[1]) {
                 return input[0].name + ' > ' + input[1].name;
-            } else if(input[0] && input[0].children.length === 0) {
+            } else if(input[0]) {
                 return input[0].name;
             }
         }            
