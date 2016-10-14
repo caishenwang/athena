@@ -43,9 +43,10 @@
   .menu-selector .dropdown .fa {
     float: right;
     margin-top: 6px; }
+  .menu-selector .dropdown .level {
+    float: left; }
   .menu-selector .dropdown ul {
     padding: 5px 0;
-    float: left;
     max-height: 260px;
     overflow-x: hidden;
     width: 150px; }
