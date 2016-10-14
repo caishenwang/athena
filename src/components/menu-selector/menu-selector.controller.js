@@ -9,6 +9,8 @@ MenuSelector.$inject = ['$scope', '$timeout'];
 
 function MenuSelector($scope, $timeout) {
     var vm = this;
+    var level1ScrollTop = 0;
+    var level2ScrollTop = 0;
 
     vm.selectedMenu = [];
     vm.isShow = false;
@@ -44,19 +46,31 @@ function MenuSelector($scope, $timeout) {
         /*
          * position
          */
+        var currentTargetTop = $event.currentTarget.offsetTop;
+        var level1 = angular.element('.level-1');
+        var level2 = angular.element('.level-2');
+        var level3 = angular.element('.level-3');
+
+        level1.scroll(function(){
+            level1ScrollTop = level1.scrollTop();
+        });
+        level2.scroll(function(){
+            level2ScrollTop = level2.scrollTop();
+        });
+
         var className = $event.currentTarget.parentNode.className;
         if(new RegExp('level-1').test(className)) {
             $timeout(function() {
-                $('.level-2').css({
-                    'margin-top': $event.currentTarget.offsetTop-6
-                });
+                if(level2.length !== 0) {
+                    level2[0].style.marginTop = currentTargetTop - level1ScrollTop - 6 + 'px';
+                }
             });
         }
         if(new RegExp('level-2').test(className)) {
             $timeout(function() {
-                $('.level-3').css({
-                    'margin-top': $event.currentTarget.offsetTop-6
-                });
+                if(level3.length !== 0) {
+                    level3[0].style.marginTop = currentTargetTop - level2ScrollTop - 6 + 'px';
+                }
             });
         }
     }
