@@ -18,13 +18,13 @@ function MenuSelector($scope, $timeout) {
     vm.hoverSelectMenu = hoverSelectMenu;
 
     function selectMenu(menuList1, menuList2, menuList3) {
-        if((menuList3 && menuList2) || vm.level === 3) {
+        if(menuList3 && menuList2 && vm.level === 3) {
             vm.selectedMenu = [menuList1, menuList2, menuList3];
             vm.isShow = false;
-        } else if((!menuList3 && menuList2) || vm.level === 2) {
+        } else if((!menuList3 && menuList2 && menuList2.children.length === 0) || (vm.level === 2 && menuList2)) {
             vm.selectedMenu = [menuList1, menuList2];
             vm.isShow = false;
-        } else if((!menuList3 && !menuList2) || vm.level === 1) {
+        } else if((!menuList3 && !menuList2 && menuList1.children.length === 0) || vm.level === 1) {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
@@ -33,9 +33,11 @@ function MenuSelector($scope, $timeout) {
 
     function showSelectedMenu() {
         vm.isShow = !vm.isShow;
-        vm.menuList1 = vm.selectedMenu[0];
-        vm.menuList2 = vm.selectedMenu[1];
-        vm.menuList3 = vm.selectedMenu[2];
+        if(vm.selectedMenu) {
+            vm.menuList1 = vm.selectedMenu[0];
+            vm.menuList2 = vm.selectedMenu[1];
+            vm.menuList3 = vm.selectedMenu[2];
+        }
     }
 
     function hoverSelectMenu(item, $event) {
