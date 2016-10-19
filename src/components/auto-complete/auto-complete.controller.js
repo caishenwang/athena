@@ -17,7 +17,7 @@ function AutoCompleteCtrl($scope) {
 
     $scope.$on('get_auto_complete_item', function(event, args) {
         vm.keywords = args[vm.key];
-    })
+    });
 
     vm.$onInit = function() {
     };

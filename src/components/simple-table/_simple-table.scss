@@ -1,0 +1,23 @@
+table .checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.min-td {
+    width: 20px;
+}
+
+.simple-table {
+    position: relative;
+    .fix-thead {
+        position: absolute;
+        left: 0;
+        z-index: 2;
+    }
+    .table-body {
+        max-height: 408px;
+        overflow-x: hidden;
+        position: relative;
+        z-index: 1;
+    }
+}

@@ -35,6 +35,7 @@
     <div ng-include="'auto-complete/auto-complete.html'"></div>
     <div ng-include="'menu-selector/menu-selector.html'"></div>
     <div ng-include="'date-picker/date-picker.html'"></div>
+    <div ng-include="'simple-table/simple-table.html'"></div>
 
     <!-- jQuery and Bootstrap -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/jquery/jquery-2.1.1.min.js"></script>
@@ -64,6 +65,7 @@
     <script src="auto-complete/auto-complete.mock.js"></script>
     <script src="menu-selector/menu-selector.mock.js"></script>
     <script src="date-picker/date-picker.mock.js"></script>
+    <script src="simple-table/simple-table.mock.js"></script>
     <script>
         angular
             .module('athena')
@@ -81,6 +83,10 @@
 
             // date-picker
             vm.defaultDate = defaultDate;
+
+            // simple-table
+            vm.tableThead = tableThead;
+            vm.tableMessage = tableMessage;
 
             init();
 
