@@ -16,11 +16,9 @@ function AutoCompleteItemCtrl($scope) {
         return 'auto-complete-' + vm.type +  '.view.html';
     };
 
-    function selectResult(item) {
-        console.log(111, item);
+    function selectResult($event, item) {
+        $event.stopPropagation();
         vm.selectedItem = item;
-        //$scope.$emit('get_auto_complete_item', item);
-        //vm.isPopup = false;
     }
 
 }

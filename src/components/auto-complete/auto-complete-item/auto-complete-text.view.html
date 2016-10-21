@@ -1,6 +1,6 @@
 <li ng-repeat="item in complete.itemList"
     ng-if="complete.itemList.length > 0"
-    ng-click="complete.selectResult(item)">
+    ng-mousedown="complete.selectResult($event, item)">
     {{ ::item[complete.key] }}
 </li>
 <li ng-if="!complete.itemList">
