@@ -13,7 +13,8 @@ angular
             placeholder: '@',
             itemList: '<',
             popupOnFocus: '<',
-            selectedItem: '='
+            selectedItem: '=',
+            keywords: '='
         }
     });
 

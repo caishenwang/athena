@@ -23,7 +23,8 @@ angular
             placeholder: '@',
             itemList: '<',
             popupOnFocus: '<',
-            selectedItem: '='
+            selectedItem: '=',
+            keywords: '='
         }
     });
 
@@ -40,7 +41,7 @@ AutoCompleteCtrl.$inject = ['$scope'];
 function AutoCompleteCtrl($scope) {
     var vm = this;
 
-    vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
+    //vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
     vm.isPopup = false;
 
     vm.showPopup = showPopup;
