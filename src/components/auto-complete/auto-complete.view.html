@@ -10,7 +10,7 @@
                             type="complete.type"
                             key="complete.key"
                             item="item"
-                            selected-item="complete.selectedItem"></auto-complete-item>
+                            on-select="complete.selectItem(item)"></auto-complete-item>
     </ul>
     <ul ng-if="!complete.itemList">
         <li>

@@ -15,7 +15,7 @@ angular
             key: '<',
             type: '<',
             item: '<',
-            selectedItem: '='
+            onSelect: '&'
         }
     });
 

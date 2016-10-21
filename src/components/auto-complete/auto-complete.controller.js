@@ -9,7 +9,6 @@ AutoCompleteCtrl.$inject = ['$scope'];
 
 function AutoCompleteCtrl($scope) {
     var vm = this;
-    //var keywords = '';
 
     vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
     vm.isPopup = false;
@@ -17,18 +16,12 @@ function AutoCompleteCtrl($scope) {
     vm.showPopup = showPopup;
     vm.hidePopup = hidePopup;
     vm.change = change;
+    vm.selectItem = selectItem;
 
     vm.$onInit = function() {
     };
 
-    //$scope.$watch('complete.selectedItem', function(newValue, oldValue) {
-    //    if(vm.selectedItem) {
-    //        vm.keywords = vm.selectedItem[vm.key];
-    //    }
-    //});
-
     function change() {
-        //keywords = vm.keywords;
         vm.isPopup = true;
     }
 
@@ -37,7 +30,10 @@ function AutoCompleteCtrl($scope) {
     }
 
     function hidePopup() {
-        vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
         vm.isPopup = false;
+    }
+
+    function selectItem(item) {
+        vm.keywords = item[vm.key];
     }
 }

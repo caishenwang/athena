@@ -17,7 +17,8 @@ function AutoCompleteItemCtrl($scope) {
     };
 
     function selectResult() {
-        vm.selectedItem = vm.item;
-        console.log(111, vm.selectedItem);
+        if (vm.onSelect) {
+            vm.onSelect();
+        }
     }
 }
