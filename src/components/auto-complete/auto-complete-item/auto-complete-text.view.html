@@ -1,7 +1,7 @@
 <li ng-repeat="item in complete.itemList"
     ng-if="complete.itemList.length > 0"
     ng-click="complete.selectResult(item)">
-    {{ ::item.name }}
+    {{ ::item[complete.key] }}
 </li>
 <li ng-if="!complete.itemList">
     加载中……

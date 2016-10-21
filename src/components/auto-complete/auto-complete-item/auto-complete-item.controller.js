@@ -17,9 +17,10 @@ function AutoCompleteItemCtrl($scope) {
     };
 
     function selectResult(item) {
+        console.log(111, item);
         vm.selectedItem = item;
-        $scope.$emit('get_auto_complete_item', item);
-        vm.isPopup = false;
+        //$scope.$emit('get_auto_complete_item', item);
+        //vm.isPopup = false;
     }
 
 }

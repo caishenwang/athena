@@ -12,8 +12,9 @@ angular
         controller: 'AutoCompleteItemCtrl',
         controllerAs: 'complete',
         bindings: {
+            key: '<',
             type: '<',
-            itemList: '=',
+            itemList: '<',
             selectedItem: '=',
             isPopup: '='
         }

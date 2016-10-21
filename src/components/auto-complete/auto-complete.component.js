@@ -11,7 +11,7 @@ angular
             key: '@',
             type: '@',
             placeholder: '@',
-            itemList: '=',
+            itemList: '<',
             selectedItem: '='
         }
     });
