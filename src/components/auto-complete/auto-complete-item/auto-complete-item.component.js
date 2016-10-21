@@ -14,9 +14,8 @@ angular
         bindings: {
             key: '<',
             type: '<',
-            itemList: '<',
-            selectedItem: '=',
-            isPopup: '='
+            item: '<',
+            selectedItem: '='
         }
     });
 

@@ -16,9 +16,8 @@ function AutoCompleteItemCtrl($scope) {
         return 'auto-complete-' + vm.type +  '.view.html';
     };
 
-    function selectResult($event, item) {
-        $event.stopPropagation();
-        vm.selectedItem = item;
+    function selectResult() {
+        vm.selectedItem = vm.item;
+        console.log(111, vm.selectedItem);
     }
-
 }
