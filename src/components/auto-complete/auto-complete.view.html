@@ -1,14 +1,25 @@
 <input class="form-control" type="text" required
        placeholder="{{ ::complete.placeholder }}"
        ng-model="complete.selectedItem[complete.key]"
-       ng-focus="complete.showPopup()"
+       ng-change="complete.showPopup()"
+       ng-focus="complete.showPopup(complete.popupOnBlur)"
        ng-blur="complete.hidePopup()">
 <div class="form-popup" ng-show="complete.isPopup">
-    <ul>
+    <ul ng-if="complete.itemList.length > 0">
         <auto-complete-item type="complete.type"
                             key="complete.key"
                             item-list="complete.itemList"
                             selected-item="complete.selectedItem"
                             is-popup="complete.isPopup"></auto-complete-item>
+    </ul>
+    <ul ng-if="!complete.itemList">
+        <li>
+            加载中……
+        </li>
+    </ul>
+    <ul ng-if="complete.itemList <= 0">
+        <li>
+            暂无结果
+        </li>
     </ul>
 </div>

@@ -18,12 +18,13 @@ function AutoCompleteCtrl($scope) {
     vm.$onInit = function() {
     };
 
-    function showPopup() {
-        vm.isPopup = true;
+    function showPopup(popupOnBlur) {
+        if(popupOnBlur) {
+            vm.isPopup = true;
+        }
     }
 
     function hidePopup() {
-        console.log(777);
         vm.isPopup = false;
     }
 }

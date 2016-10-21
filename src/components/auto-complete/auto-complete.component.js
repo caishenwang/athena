@@ -12,6 +12,7 @@ angular
             type: '@',
             placeholder: '@',
             itemList: '<',
+            popupOnBlur: '<',
             selectedItem: '='
         }
     });
