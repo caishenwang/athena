@@ -1,3 +1,6 @@
+body {
+  font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB","Microsoft Yahei",sans-serif; }
+
 .form-popup {
   z-index: 3;
   top: inherit;
@@ -69,3 +72,22 @@
 .date-picker-range > div {
   width: 240px;
   float: left; }
+
+table .checkbox {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.min-td {
+  width: 20px; }
+
+.simple-table {
+  position: relative; }
+  .simple-table .fix-thead {
+    position: absolute;
+    left: 0;
+    z-index: 2; }
+  .simple-table .table-body {
+    max-height: 408px;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1; }

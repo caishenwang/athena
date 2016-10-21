@@ -2,7 +2,8 @@ angular.module('athena', [
     'athena.autoComplete',
     'athena.menuSelector',
     'athena.templates',
-    'athena.datePicker'
+    'athena.datePicker',
+    'athena.simpleTable'
 ]);
 
 angular.module('athena.templates', []);
@@ -20,7 +21,8 @@ angular
             key: '@',
             type: '@',
             placeholder: '@',
-            itemList: '=',
+            itemList: '<',
+            popupOnFocus: '<',
             selectedItem: '='
         }
     });
@@ -38,24 +40,31 @@ AutoCompleteCtrl.$inject = ['$scope'];
 function AutoCompleteCtrl($scope) {
     var vm = this;
 
-    vm.keywords = null;
+    vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
     vm.isPopup = false;
 
-    vm.query = query;
-
-    $scope.$on('get_auto_complete_item', function(event, args) {
-        vm.keywords = args[vm.key];
-    })
+    vm.showPopup = showPopup;
+    vm.hidePopup = hidePopup;
+    vm.change = change;
+    vm.selectItem = selectItem;
 
     vm.$onInit = function() {
     };
 
-    function query() {
-        var keywords = vm.keywords;
-        if(keywords) {
-            $scope.$emit('get_complete_keywords', keywords);
-        }
-        vm.isPopup = keywords ? true : false;
+    function change() {
+        vm.isPopup = true;
+    }
+
+    function showPopup() {
+        vm.isPopup = vm.popupOnFocus;
+    }
+
+    function hidePopup() {
+        vm.isPopup = false;
+    }
+
+    function selectItem(item) {
+        vm.keywords = item[vm.key];
     }
 }
 
@@ -447,6 +456,35 @@ function menuSelector() {
 }
 
 /**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
+    .module('athena.simpleTable', [])
+    .component('simpleTable',{
+        templateUrl: 'simple-table.view.html',
+        controller: 'SimpleTable',
+        controllerAs: 'table',
+        bindings: {
+            tableThead: '<',
+            tableMessage: '<'
+        }
+    });
+
+/**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
+    .module('athena.simpleTable')
+    .controller('SimpleTable', SimpleTable);
+
+SimpleTable.$inject = [];
+
+function SimpleTable() {
+    var vm = this;
+    
+}
+
+/**
  * @author changye@thinkerx.com
  */
 angular
@@ -460,10 +498,10 @@ angular
         controller: 'AutoCompleteItemCtrl',
         controllerAs: 'complete',
         bindings: {
+            key: '<',
             type: '<',
-            itemList: '=',
-            selectedItem: '=',
-            isPopup: '='
+            item: '<',
+            onSelect: '&'
         }
     });
 
@@ -486,10 +524,9 @@ function AutoCompleteItemCtrl($scope) {
         return 'auto-complete-' + vm.type +  '.view.html';
     };
 
-    function selectResult(item) {
-        vm.selectedItem = item;
-        $scope.$emit('get_auto_complete_item', item);
-        vm.isPopup = false;
+    function selectResult() {
+        if (vm.onSelect) {
+            vm.onSelect();
+        }
     }
-
 }
