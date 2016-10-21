@@ -1,25 +1,36 @@
 <div class="row">
-    <div class="col-lg-12">
+    <!--<div class="col-lg-12">-->
         <div class="col-lg-4">
-            <div class="col-sm-4">text</div>
+            <div class="col-sm-4">text(纯文本型):blur无法弹出popup（不传popup-on-blur或者传一个非真值）</div>
             <div class="col-sm-8">
-                <auto-complete item-list="main.autoCompleteItemList"
-                               selected-item="main.selectedItem"
+                <auto-complete item-list="main.autoCompleteList1"
+                               selected-item="main.selectedItem1"
                                key="name"
                                type="text"
                                placeholder="请输入店铺名称"></auto-complete>
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="col-sm-4">material</div>
+            <div class="col-sm-4">text(纯文本型)：blur弹出popup（传一个为真值）</div>
             <div class="col-sm-8">
-                <auto-complete item-list="main.autoCompleteItemList"
-                               selected-item="main.selectedItem"
+                <auto-complete item-list="main.autoCompleteList2"
+                               selected-item="main.selectedItem2"
+                               key="name"
+                               type="text"
+                               placeholder="请输入店铺名称"
+                               popup-on-blur="true"></auto-complete>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="col-sm-4">material(物料型)</div>
+            <div class="col-sm-8">
+                <auto-complete item-list="main.autoCompleteList3"
+                               selected-item="main.selectedItem3"
                                key="name"
                                type="material"
                                placeholder="请输入物料名称"></auto-complete>
             </div>
         </div>
-    </div>
+    <!--</div>-->
 
 </div>

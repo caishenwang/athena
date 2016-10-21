@@ -1,4 +1,4 @@
-var autoCompleteItemList = [
+var autoCompleteTextItemList = [
     {
         'id': 1,
         'name': '杭州'
