@@ -2,7 +2,7 @@
        placeholder="{{ ::complete.placeholder }}"
        ng-model="complete.keywords"
        ng-change="complete.change()"
-       ng-focus="complete.showPopup(complete.popupOnBlur)"
+       ng-focus="complete.showPopup()"
        ng-blur="complete.hidePopup()">
 <div class="form-popup" ng-show="complete.isPopup">
     <ul ng-if="complete.itemList.length > 0">
