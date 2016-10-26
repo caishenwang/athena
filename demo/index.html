@@ -32,10 +32,10 @@
 <body ng-controller="MainCtrl as main" style="background: #fff;padding-top: 50px;">
     <!-- Main view  -->
     <!--<div ui-view></div>-->
-    <div ng-include="'auto-complete/auto-complete.html'"></div>
     <div ng-include="'menu-selector/menu-selector.html'"></div>
-    <div ng-include="'date-picker/date-picker.html'"></div>
     <div ng-include="'simple-table/simple-table.html'"></div>
+    <div ng-include="'auto-complete/auto-complete.html'"></div>
+    <div ng-include="'date-picker/date-picker.html'"></div>
 
     <!-- jQuery and Bootstrap -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/jquery/jquery-2.1.1.min.js"></script>
@@ -58,6 +58,8 @@
 
     <!-- date-picker -->
     <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/plugins/datapicker/angular-datepicker.js"></script>
+
+    <script src="http://cdn.cshen.cn/INSPINIA-v2.6.2/js/angular/angular-sanitize.js"></script>
 
     <!-- Anglar App Script -->
     <script src="/dist/js/athena.js"></script>
@@ -90,8 +92,8 @@
             vm.defaultDate = defaultDate;
 
             // simple-table
-            vm.tableThead = tableThead;
-            vm.tableMessage = tableMessage;
+            vm.tableConfig = tableConfig;
+            vm.tableData = tableData;
 
             init();
 

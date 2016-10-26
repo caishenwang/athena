@@ -10,4 +10,11 @@ SimpleTable.$inject = [];
 function SimpleTable() {
     var vm = this;
     
+    vm.isShow = false;
+
+    vm.showDetail = showDetail;
+
+    function showDetail(item) {
+        item.isShow = !item.isShow;
+    }
 }

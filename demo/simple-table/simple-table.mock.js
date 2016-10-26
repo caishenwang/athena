@@ -1,4 +1,4 @@
-var tableThead = [
+var tableConfig = [
     {
         'name': '订单编号',
         'width': '20%',
@@ -25,20 +25,27 @@ var tableThead = [
         'key': 'printNum'
     },
     {
+        'name': '是否取消',
+        'width': '10%',
+        'key': 'opt'
+    },
+    {
         'name': '备注',
-        'width': '20%',
+        'width': '10%',
         'key': 'remark'
     }
 ];
 
-var tableMessage = [
+var tableData = [
     {
         'sn': 123456,
         'date': '2016-02-03',
         'money': 12.00,
         'status': 1,
         'printNum': 2,
-        'remark': '我的备注1'
+        'opt': '<a>取消订单</a>',
+        'remark': '我的备注1',
+        'templatesUrl': 'menu-selector.view.html'
     },
     {
         'sn': 1234565345,
@@ -46,6 +53,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -54,6 +62,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -62,6 +71,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -70,6 +80,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -78,6 +89,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -86,6 +98,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -94,6 +107,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -102,6 +116,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -110,6 +125,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -118,6 +134,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -126,6 +143,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -134,6 +152,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -142,6 +161,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -150,6 +170,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -158,6 +179,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -166,6 +188,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -174,6 +197,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -182,6 +206,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     },
     {
@@ -190,6 +215,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注2'
     },
     {
@@ -198,6 +224,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注3'
     },
     {
@@ -206,6 +233,7 @@ var tableMessage = [
         'money': 12.00,
         'status': 1,
         'printNum': 2,
+        'opt': '<a>取消订单</a>',
         'remark': '我的备注4'
     }
 ];

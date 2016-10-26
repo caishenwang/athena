@@ -8,7 +8,7 @@ angular
         controller: 'SimpleTable',
         controllerAs: 'table',
         bindings: {
-            tableThead: '<',
-            tableMessage: '<'
+            tableConfig: '<',
+            tableData: '<'
         }
     });

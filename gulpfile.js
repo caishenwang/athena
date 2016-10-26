@@ -33,6 +33,7 @@ var paths = {
     ],
     css: [
         'src/scss/' + projectName + '.scss',
+        'src/scss/base/*.scss',
         'src/components/**/*.scss'
     ],
     html: [

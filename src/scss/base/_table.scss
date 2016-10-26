@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    background: #fff;
+    th, td {
+        line-height: 1.4;
+        padding: 8px;
+        border: 1px solid #eee;
+    }
+    tr th {
+        background: #f6f6f6;
+    }
+}
+
+.table-striped tbody:nth-child(odd) tr{
+    background: #fbfbfb;
+}
+
+.table-striped tbody:nth-child(even) tr{
+    background: #fff;
+}

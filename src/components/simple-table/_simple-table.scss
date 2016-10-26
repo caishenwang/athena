@@ -1,23 +1,24 @@
-table .checkbox {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.min-td {
-    width: 20px;
-}
-
 .simple-table {
     position: relative;
-    .fix-thead {
+    .table-thead-body {
         position: absolute;
+        width: 100%;
+        overflow-y: scroll;
         left: 0;
         z-index: 2;
+        table {
+            margin: 0;
+        }
     }
+    .table-thead-body::-webkit-scrollbar{ opacity: 0; filter: alpha(opacity=0);}
     .table-body {
-        max-height: 408px;
+        max-height: 400px;
         overflow-x: hidden;
         position: relative;
         z-index: 1;
+    }
+
+    .dropdown-td {
+        width: 100%;
     }
 }

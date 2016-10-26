@@ -3,7 +3,8 @@ angular.module('athena', [
     'athena.menuSelector',
     'athena.templates',
     'athena.datePicker',
-    'athena.simpleTable'
+    'athena.simpleTable',
+    'ngSanitize'
 ]);
 
 angular.module('athena.templates', []);
