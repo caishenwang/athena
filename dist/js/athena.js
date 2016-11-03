@@ -342,6 +342,42 @@ function dateRange() {
  * @author zhangboxuan@thinkerx.com
  */
 angular
+    .module('athena.simpleTable', [])
+    .component('simpleTable',{
+        templateUrl: 'simple-table.view.html',
+        controller: 'SimpleTable',
+        controllerAs: 'table',
+        bindings: {
+            tableConfig: '<',
+            tableData: '<'
+        }
+    });
+
+/**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
+    .module('athena.simpleTable')
+    .controller('SimpleTable', SimpleTable);
+
+SimpleTable.$inject = [];
+
+function SimpleTable() {
+    var vm = this;
+    
+    vm.isShow = false;
+
+    vm.showDetail = showDetail;
+
+    function showDetail(item) {
+        item.isShow = !item.isShow;
+    }
+}
+
+/**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
     .module('athena.menuSelector', [])
     .component('menuSelector',{
         templateUrl: 'menu-selector.view.html',
@@ -352,7 +388,8 @@ angular
             placeholder: '@', /*输入框提示语*/
             level: '<', /*支持等级-最多3*/
             selectedMenu: '<', /*输入框默认值*/
-            isShow: '<' /*下拉树默认是否显示*/
+            isShow: '<', /*下拉树默认是否显示*/
+            eventName: '@'
         }
     });
 
@@ -388,7 +425,7 @@ function MenuSelector($scope, $timeout) {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
-        $scope.$emit('get_selected_menu', vm.selectedMenu);
+        $scope.$emit(vm.eventName, vm.selectedMenu);
     }
 
     function showSelectedMenu() {
@@ -456,42 +493,6 @@ function menuSelector() {
             }
         }            
     };
-}
-
-/**
- * @author zhangboxuan@thinkerx.com
- */
-angular
-    .module('athena.simpleTable', [])
-    .component('simpleTable',{
-        templateUrl: 'simple-table.view.html',
-        controller: 'SimpleTable',
-        controllerAs: 'table',
-        bindings: {
-            tableConfig: '<',
-            tableData: '<'
-        }
-    });
-
-/**
- * @author zhangboxuan@thinkerx.com
- */
-angular
-    .module('athena.simpleTable')
-    .controller('SimpleTable', SimpleTable);
-
-SimpleTable.$inject = [];
-
-function SimpleTable() {
-    var vm = this;
-    
-    vm.isShow = false;
-
-    vm.showDetail = showDetail;
-
-    function showDetail(item) {
-        item.isShow = !item.isShow;
-    }
 }
 
 /**
