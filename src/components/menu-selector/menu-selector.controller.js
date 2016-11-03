@@ -30,6 +30,7 @@ function MenuSelector($scope, $timeout) {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
+        vm.eventName = vm.eventName || 'get_selected_menu';
         $scope.$emit(vm.eventName, vm.selectedMenu);
     }
 
