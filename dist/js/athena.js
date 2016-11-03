@@ -10,67 +10,6 @@ angular.module('athena', [
 angular.module('athena.templates', []);
 
 /**
- * @author changye@thinkerx.com
- */
-angular
-    .module('athena.autoComplete', [])
-    .component('autoComplete', {
-        templateUrl: 'auto-complete.view.html',
-        controller: 'AutoCompleteCtrl',
-        controllerAs: 'complete',
-        bindings: {
-            key: '@',
-            type: '@',
-            placeholder: '@',
-            itemList: '<',
-            popupOnFocus: '<',
-            selectedItem: '=',
-            keywords: '='
-        }
-    });
-
-
-/**
- * @author changye@thinkerx.com
- */
-angular
-    .module('athena.autoComplete')
-    .controller('AutoCompleteCtrl', AutoCompleteCtrl);
-
-AutoCompleteCtrl.$inject = ['$scope'];
-
-function AutoCompleteCtrl($scope) {
-    var vm = this;
-
-    //vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
-    vm.isPopup = false;
-
-    vm.showPopup = showPopup;
-    vm.hidePopup = hidePopup;
-    vm.change = change;
-    vm.selectItem = selectItem;
-
-    vm.$onInit = function() {
-    };
-
-    function change() {
-        vm.isPopup = true;
-    }
-
-    function showPopup() {
-        vm.isPopup = vm.popupOnFocus;
-    }
-
-    function hidePopup() {
-        vm.isPopup = false;
-    }
-
-    function selectItem(item) {
-        vm.keywords = item[vm.key];
-    }
-}
-
-/**
  * @author zhangboxuan@thinkerx.com
  */
 angular
@@ -339,6 +278,67 @@ function dateRange() {
 }
 
 /**
+ * @author changye@thinkerx.com
+ */
+angular
+    .module('athena.autoComplete', [])
+    .component('autoComplete', {
+        templateUrl: 'auto-complete.view.html',
+        controller: 'AutoCompleteCtrl',
+        controllerAs: 'complete',
+        bindings: {
+            key: '@',
+            type: '@',
+            placeholder: '@',
+            itemList: '<',
+            popupOnFocus: '<',
+            selectedItem: '=',
+            keywords: '='
+        }
+    });
+
+
+/**
+ * @author changye@thinkerx.com
+ */
+angular
+    .module('athena.autoComplete')
+    .controller('AutoCompleteCtrl', AutoCompleteCtrl);
+
+AutoCompleteCtrl.$inject = ['$scope'];
+
+function AutoCompleteCtrl($scope) {
+    var vm = this;
+
+    //vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
+    vm.isPopup = false;
+
+    vm.showPopup = showPopup;
+    vm.hidePopup = hidePopup;
+    vm.change = change;
+    vm.selectItem = selectItem;
+
+    vm.$onInit = function() {
+    };
+
+    function change() {
+        vm.isPopup = true;
+    }
+
+    function showPopup() {
+        vm.isPopup = vm.popupOnFocus;
+    }
+
+    function hidePopup() {
+        vm.isPopup = false;
+    }
+
+    function selectItem(item) {
+        vm.keywords = item[vm.key];
+    }
+}
+
+/**
  * @author zhangboxuan@thinkerx.com
  */
 angular
@@ -425,6 +425,7 @@ function MenuSelector($scope, $timeout) {
             vm.selectedMenu = [menuList1];
             vm.isShow = false;
         }
+        vm.eventName = vm.eventName || 'get_selected_menu';
         $scope.$emit(vm.eventName, vm.selectedMenu);
     }
 
