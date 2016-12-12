@@ -11,6 +11,7 @@ function MenuSelector($scope, $timeout) {
     var vm = this;
     var level1ScrollTop = 0;
     var level2ScrollTop = 0;
+    var currentTargetTop = 0;
 
     vm.selectedMenu = [];
     vm.isShow = false;
@@ -35,6 +36,9 @@ function MenuSelector($scope, $timeout) {
     }
 
     function showSelectedMenu() {
+        level1ScrollTop = 0;
+        level2ScrollTop = 0;
+        currentTargetTop = 0;
         vm.isShow = !vm.isShow;
         if(vm.selectedMenu) {
             vm.menuList1 = vm.selectedMenu[0];
@@ -47,7 +51,7 @@ function MenuSelector($scope, $timeout) {
         /*
          * position
          */
-        var currentTargetTop = $event.currentTarget.offsetTop;
+        currentTargetTop = $event.currentTarget.offsetTop;
         var level1 = angular.element('.level-1');
         var level2 = angular.element('.level-2');
         var level3 = angular.element('.level-3');

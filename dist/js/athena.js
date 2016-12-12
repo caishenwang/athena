@@ -10,6 +10,67 @@ angular.module('athena', [
 angular.module('athena.templates', []);
 
 /**
+ * @author changye@thinkerx.com
+ */
+angular
+    .module('athena.autoComplete', [])
+    .component('autoComplete', {
+        templateUrl: 'auto-complete.view.html',
+        controller: 'AutoCompleteCtrl',
+        controllerAs: 'complete',
+        bindings: {
+            key: '@',
+            type: '@',
+            placeholder: '@',
+            itemList: '<',
+            popupOnFocus: '<',
+            selectedItem: '=',
+            keywords: '='
+        }
+    });
+
+
+/**
+ * @author changye@thinkerx.com
+ */
+angular
+    .module('athena.autoComplete')
+    .controller('AutoCompleteCtrl', AutoCompleteCtrl);
+
+AutoCompleteCtrl.$inject = ['$scope'];
+
+function AutoCompleteCtrl($scope) {
+    var vm = this;
+
+    //vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
+    vm.isPopup = false;
+
+    vm.showPopup = showPopup;
+    vm.hidePopup = hidePopup;
+    vm.change = change;
+    vm.selectItem = selectItem;
+
+    vm.$onInit = function() {
+    };
+
+    function change() {
+        vm.isPopup = true;
+    }
+
+    function showPopup() {
+        vm.isPopup = vm.popupOnFocus;
+    }
+
+    function hidePopup() {
+        vm.isPopup = false;
+    }
+
+    function selectItem(item) {
+        vm.keywords = item[vm.key];
+    }
+}
+
+/**
  * @author zhangboxuan@thinkerx.com
  */
 angular
@@ -278,103 +339,6 @@ function dateRange() {
 }
 
 /**
- * @author changye@thinkerx.com
- */
-angular
-    .module('athena.autoComplete', [])
-    .component('autoComplete', {
-        templateUrl: 'auto-complete.view.html',
-        controller: 'AutoCompleteCtrl',
-        controllerAs: 'complete',
-        bindings: {
-            key: '@',
-            type: '@',
-            placeholder: '@',
-            itemList: '<',
-            popupOnFocus: '<',
-            selectedItem: '=',
-            keywords: '='
-        }
-    });
-
-
-/**
- * @author changye@thinkerx.com
- */
-angular
-    .module('athena.autoComplete')
-    .controller('AutoCompleteCtrl', AutoCompleteCtrl);
-
-AutoCompleteCtrl.$inject = ['$scope'];
-
-function AutoCompleteCtrl($scope) {
-    var vm = this;
-
-    //vm.keywords = vm.selectedItem ? vm.selectedItem[vm.key] : '';
-    vm.isPopup = false;
-
-    vm.showPopup = showPopup;
-    vm.hidePopup = hidePopup;
-    vm.change = change;
-    vm.selectItem = selectItem;
-
-    vm.$onInit = function() {
-    };
-
-    function change() {
-        vm.isPopup = true;
-    }
-
-    function showPopup() {
-        vm.isPopup = vm.popupOnFocus;
-    }
-
-    function hidePopup() {
-        vm.isPopup = false;
-    }
-
-    function selectItem(item) {
-        vm.keywords = item[vm.key];
-    }
-}
-
-/**
- * @author zhangboxuan@thinkerx.com
- */
-angular
-    .module('athena.simpleTable', [])
-    .component('simpleTable',{
-        templateUrl: 'simple-table.view.html',
-        controller: 'SimpleTable',
-        controllerAs: 'table',
-        bindings: {
-            tableConfig: '<',
-            tableData: '<'
-        }
-    });
-
-/**
- * @author zhangboxuan@thinkerx.com
- */
-angular
-    .module('athena.simpleTable')
-    .controller('SimpleTable', SimpleTable);
-
-SimpleTable.$inject = [];
-
-function SimpleTable() {
-    var vm = this;
-    
-    vm.isShow = false;
-
-    vm.showDetail = showDetail;
-
-    function showDetail(item) {
-        item.isShow = !item.isShow;
-    }
-}
-
-/**
  * @author zhangboxuan@thinkerx.com
  */
 angular
@@ -406,6 +370,7 @@ function MenuSelector($scope, $timeout) {
     var vm = this;
     var level1ScrollTop = 0;
     var level2ScrollTop = 0;
+    var currentTargetTop = 0;
 
     vm.selectedMenu = [];
     vm.isShow = false;
@@ -430,6 +395,9 @@ function MenuSelector($scope, $timeout) {
     }
 
     function showSelectedMenu() {
+        level1ScrollTop = 0;
+        level2ScrollTop = 0;
+        currentTargetTop = 0;
         vm.isShow = !vm.isShow;
         if(vm.selectedMenu) {
             vm.menuList1 = vm.selectedMenu[0];
@@ -442,7 +410,7 @@ function MenuSelector($scope, $timeout) {
         /*
          * position
          */
-        var currentTargetTop = $event.currentTarget.offsetTop;
+        currentTargetTop = $event.currentTarget.offsetTop;
         var level1 = angular.element('.level-1');
         var level2 = angular.element('.level-2');
         var level3 = angular.element('.level-3');
@@ -494,6 +462,42 @@ function menuSelector() {
             }
         }            
     };
+}
+
+/**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
+    .module('athena.simpleTable', [])
+    .component('simpleTable',{
+        templateUrl: 'simple-table.view.html',
+        controller: 'SimpleTable',
+        controllerAs: 'table',
+        bindings: {
+            tableConfig: '<',
+            tableData: '<'
+        }
+    });
+
+/**
+ * @author zhangboxuan@thinkerx.com
+ */
+angular
+    .module('athena.simpleTable')
+    .controller('SimpleTable', SimpleTable);
+
+SimpleTable.$inject = [];
+
+function SimpleTable() {
+    var vm = this;
+    
+    vm.isShow = false;
+
+    vm.showDetail = showDetail;
+
+    function showDetail(item) {
+        item.isShow = !item.isShow;
+    }
 }
 
 /**
